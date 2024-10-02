@@ -56,6 +56,8 @@
 
         .data-label {
             font-weight: bold;
+            text-align: left; /* Mengatur agar label data tidak berada di tengah */
+            width: 100%; /* Memastikan label data mengambil lebar penuh */
         }
 
         .member-perks,
@@ -139,19 +141,19 @@
             <div class="text-center">
                 <img src="images/food-1.jpg" alt="Profile Picture" class="profile-pic"> <!-- Ganti dengan foto profil yang sesuai -->
             </div>
-            <div class="mb-3">
+            <div class="mb-3 w-100">
                 <p class="data-label">Nama:</p>
                 <p id="displayName">Nama Pengguna</p>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 w-100">
                 <p class="data-label">Email:</p>
                 <p id="displayEmail">user@example.com</p>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 w-100">
                 <p class="data-label">Alamat:</p>
                 <p id="displayAddress">Jl. Contoh No. 123, Jakarta</p>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 w-100">
                 <p class="data-label">Telepon:</p>
                 <p id="displayPhone">0812-3456-7890</p>
             </div>
@@ -163,7 +165,7 @@
 
         <div class="order-history">
             <h5>Riwayat Pemesanan</h5>
-            <button class="btn btn-info">Lihat Riwayat Pemesanan</button>
+            <a href="history.html" class="btn btn-info ms-2">Lihat Riwayat Pemesanan</a> <!-- Tombol menuju history.html -->
             <h5 class="mt-5">Referensi Hotel Lainnya</h5>
             <div class="card">
                 <div class="card-body">
@@ -189,7 +191,7 @@
         </div>
     </div>
 
-    <!-- Modal untuk Edit Profil -->
+    <!-- Modal Edit Profil -->
     <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -229,8 +231,6 @@
     <footer>
         <div class="text-white">
             <p>© 2024 Begindang. All Rights Reserved.</p>
-            <a href="about.html" class="text-white">About Us</a> |
-            <a href="contact.html" class="text-white">Contact</a>
         </div>
     </footer>
 </body>
