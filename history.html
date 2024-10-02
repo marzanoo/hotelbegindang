@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Pemesanan - Begindang</title>
+    <link rel="icon" type="image/png" href="ft/plane.svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px 0;
+            background-image: url('images/latar.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .order-history {
+            width: 100%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card {
+            margin-bottom: 15px;
+        }
+
+        footer {
+            width: 100%;
+            text-align: center;
+            background-color: #90d5ff;
+            padding: 10px;
+            margin-top: auto;
+        }
+
+        .text-white a {
+            color: #fff;
+        }
+
+        /* Media Query untuk ukuran 768px ke bawah */
+        @media (max-width: 768px) {
+            .container {
+                align-items: center; /* Memastikan konten berada di tengah */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="order-history">
+            <h5>Riwayat Pemesanan</h5>
+            <div class="card">
+                <img src="images/hotel1.jpg" class="card-img-top" alt="Hotel A"> <!-- Ganti dengan gambar hotel yang sesuai -->
+                <div class="card-body">
+                    <h5 class="card-title">Hotel A</h5>
+                    <p class="card-text">Deskripsi singkat tentang Hotel A.</p>
+                    <p class="card-text"><strong>Tanggal Pemesanan:</strong> 01 Jan 2024</p>
+                    <p class="card-text"><strong>Status:</strong> Selesai</p>
+                    <a href="#" class="btn btn-primary">Lihat Detail</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/hotel2.jpg" class="card-img-top" alt="Hotel B"> <!-- Ganti dengan gambar hotel yang sesuai -->
+                <div class="card-body">
+                    <h5 class="card-title">Hotel B</h5>
+                    <p class="card-text">Deskripsi singkat tentang Hotel B.</p>
+                    <p class="card-text"><strong>Tanggal Pemesanan:</strong> 15 Jan 2024</p>
+                    <p class="card-text"><strong>Status:</strong> Selesai</p>
+                    <a href="#" class="btn btn-primary">Lihat Detail</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/hotel3.jpg" class="card-img-top" alt="Hotel C"> <!-- Ganti dengan gambar hotel yang sesuai -->
+                <div class="card-body">
+                    <h5 class="card-title">Hotel C</h5>
+                    <p class="card-text">Deskripsi singkat tentang Hotel C.</p>
+                    <p class="card-text"><strong>Tanggal Pemesanan:</strong> 20 Jan 2024</p>
+                    <p class="card-text"><strong>Status:</strong> Selesai</p>
+                    <a href="#" class="btn btn-primary">Lihat Detail</a>
+                </div>
+            </div>
+        </div>
+        <a href="home.html" class="btn btn-secondary mt-3">Kembali ke Home</a> <!-- Tombol Kembali ke Home -->
+    </div>
+
+    <footer>
+        <div class="text-white">
+            &copy; 2024 Begindang. All rights reserved. | <a href="about.html">About Us</a> | <a href="contact.html">Contact</a>
+        </div>
+    </footer>
+</body>
+
+</html>
