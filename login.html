@@ -77,6 +77,11 @@
             text-align: center;
             z-index: 2;
         }
+
+        .btn-lg:hover{
+            background: linear-gradient(45deg, #f7971e, #ffd200);
+            color: white;
+        }
     </style>
 </head>
 
@@ -97,15 +102,24 @@
                     <form>
                         <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                             <p class="lead fw-normal mb-0 me-3 text-white">Login with</p>
-                            <button type="button" class="btn btn-primary btn-floating mx-1" onclick="window.open('https://www.facebook.com/login', '_blank')">
-                                <i class="fa fa-facebook"></i>
+                            <button type="button" class="btn btn-floating mx-1" 
+                                    style="background-color: rgba(0, 0, 50, 0.8);" 
+                                    onclick="window.open('https://www.facebook.com/login', '_blank')">
+                                <i class="text-white fa fa-facebook"></i>
                             </button>
-                            <button type="button" class="btn btn-primary btn-floating mx-1" onclick="window.open('https://twitter.com/login', '_blank')">
-                                <i class="fa fa-twitter"></i>
+
+                            <button type="button" class="btn btn-floating mx-1" 
+                                    style="background-color: rgba(0, 0, 50, 0.8);" 
+                                    onclick="window.open('https://twitter.com/login', '_blank')">
+                                <i class="text-white fa fa-twitter"></i>
                             </button>
-                            <button type="button" class="btn btn-primary btn-floating mx-1" onclick="window.open('https://accounts.google.com/signin', '_blank')">
-                                <i class="fa fa-google"></i>
+
+                            <button type="button" class="btn btn-floating mx-1" 
+                                    style="background-color: rgba(0, 0, 50, 0.8);" 
+                                    onclick="window.open('https://accounts.google.com/signin', '_blank')">
+                                <i class="text-white fa fa-google"></i>
                             </button>
+
                         </div>
                         
 
@@ -162,7 +176,7 @@
 
         <!-- Footer -->
         <footer>
-            <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5" style="background-color: #90d5ff;" onclick="window.location.href='index.html';">
+            <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5" style="background-color: rgba(0, 0, 50, 0.8);">
                 <!-- Copyright -->
                 <div class="text-white mb-3 mb-md-0">
                     Copyright © 2024 Begindang. All rights reserved.
@@ -170,16 +184,16 @@
 
                 <!-- Right -->
                 <div>
-                    <a href="#!" class="text-white me-4">
+                    <a href="#!" class="text-white me-4 text-decoration-none">
                         <i class="fa fa-facebook"></i>
                     </a>
-                    <a href="#!" class="text-white me-4">
+                    <a href="#!" class="text-white me-4 text-decoration-none">
                         <i class="fa fa-twitter"></i>
                     </a>
-                    <a href="#!" class="text-white me-4">
+                    <a href="#!" class="text-white me-4 text-decoration-none">
                         <i class="fa fa-google"></i>
                     </a>
-                    <a href="#!" class="text-white">
+                    <a href="#!" class="text-white text-decoration-none">
                         <i class="fa fa-instagram"></i>
                     </a>
                 </div>

@@ -30,8 +30,8 @@
             justify-content: space-between;
             align-items: flex-start;
             width: 90%;
-            max-width: 1200px;
-            margin: 20px auto;
+            max-width: 1400px;
+            margin: 100px auto;
         }
         .order-history,
         .recommendation {
@@ -42,15 +42,15 @@
             color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            max-height: 500px;
-            overflow-y: auto; /* Membuat bagian ini dapat di-scroll */
-            /* Hide scrollbar */
+            max-height: 700px;
+            overflow-y: auto;
             scrollbar-width: none; /* Firefox */
             -ms-overflow-style: none; /* IE 10+ */
+            margin-bottom: 20px;
         }
         .order-history::-webkit-scrollbar,
         .recommendation::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Opera */
+            display: none;
         }
         .card {
             margin-bottom: 15px;
@@ -66,11 +66,31 @@
             color: #fff;
         }
         .btn-primary {
-            background-color: #90d5ff;
+            background: linear-gradient(45deg, #90d5ff, #78c0e0);
             border: none;
+            transition: background 0.5s ease;
         }
         .btn-primary:hover {
-            background-color: #78c0e0;
+            background: linear-gradient(45deg, #f7971e, #ffd200);
+            color: white;
+        }
+        .kembali-btn {
+            border: none;
+            transition: background 0.5s ease;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px); font-weight: bold;
+        }
+
+        .kembali-btn:hover {
+            background: linear-gradient(45deg, #f7971e, #ffd200);
+            color: white;
         }
         .card-img-top {
             max-width: 100%;
@@ -98,23 +118,7 @@
         .social-icons a:hover {
             color: #ddd;
         }
-        #backToTopBtn {
-            display: none; /* Hidden by default */
-            position: fixed; /* Fixed/sticky position */
-            bottom: 20px; /* Place the button at the bottom */
-            right: 30px; /* Place the button 30px from the right */
-            z-index: 99; /* Make sure it does not overlap */
-            border: none; /* Remove borders */
-            outline: none; /* Remove outline */
-            background-color: #90d5ff; /* Set a background color */
-            color: white; /* Text color */
-            cursor: pointer; /* Add a mouse pointer on hover */
-            padding: 15px; /* Some padding */
-            border-radius: 10px; /* Rounded corners */
-        }
-        #backToTopBtn:hover {
-            background-color: #555; /* Add a dark-grey background on hover */
-        }
+       
         /* Media Query untuk ukuran 768px ke bawah */
         @media (max-width: 768px) {
             .container {
@@ -132,33 +136,14 @@
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);">
-        <div class="container-fluid">
-            <a class="navbar-brand text-white" href="#">Begindang</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon" style="color: #fff;"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <!-- Navigation links -->
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active text-white" aria-current="page" href="profile.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Riwayat Pemesanan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Rekomendasi</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- Konten Utama -->
     <div class="container">
+        <!-- Tombol Kembali ke Profil -->
+        <a href="profile.html" class="btn mb-3 kembali-btn">
+            <i class="fas fa-arrow-left"></i> Kembali ke Profil
+        </a>
+        
         <!-- Riwayat Pemesanan -->
-        <div class="order-history">
+        <div class="order-history mx-4">
             <h5>Riwayat Pemesanan</h5>
             <!-- Kartu Pemesanan -->
             <div class="card">
@@ -198,7 +183,7 @@
             <h5>Rekomendasi Hotel Lain</h5>
             <!-- Kartu Rekomendasi -->
             <div class="card">
-                <img src="images/hotel_1.jpg" class="card-img-top" alt="Hotel D">
+                <img src="images/slider-1.jpg" class="card-img-top" alt="Hotel D">
                 <div class="card-body">
                     <h5 class="card-title">Hotel D</h5>
                     <p class="card-text">Deskripsi singkat tentang Hotel D.</p>
@@ -206,7 +191,7 @@
                 </div>
             </div>
             <div class="card">
-                <img src="images/hotel_1.jpg" class="card-img-top" alt="Hotel D">
+                <img src="images/slider-2.jpg" class="card-img-top" alt="Hotel D">
                 <div class="card-body">
                     <h5 class="card-title">Hotel D</h5>
                     <p class="card-text">Deskripsi singkat tentang Hotel D.</p>
@@ -214,7 +199,7 @@
                 </div>
             </div>
             <div class="card">
-                <img src="images/hotel_1.jpg" class="card-img-top" alt="Hotel D">
+                <img src="images/slider-3.jpg" class="card-img-top" alt="Hotel D">
                 <div class="card-body">
                     <h5 class="card-title">Hotel D</h5>
                     <p class="card-text">Deskripsi singkat tentang Hotel D.</p>
@@ -224,8 +209,6 @@
             <!-- Tambahkan lebih banyak kartu sesuai kebutuhan -->
         </div>
     </div>
-    <!-- Tombol Back to Top -->
-    <button onclick="topFunction()" id="backToTopBtn" title="Go to top"><i class="fas fa-chevron-up"></i></button>
     <!-- Footer -->
     <footer>
         <div class="text-white">
@@ -237,26 +220,5 @@
             </div>
         </div>
     </footer>
-    <!-- Bootstrap JS dan dependensi -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!-- Custom JS -->
-    <script>
-        // Mendapatkan tombol:
-        var mybutton = document.getElementById("backToTopBtn");
-        // Ketika pengguna scroll ke bawah 20px dari atas dokumen, tampilkan tombol
-        window.onscroll = function() {scrollFunction();};
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
-        }
-        // Ketika pengguna klik tombol, scroll ke atas halaman
-        function topFunction() {
-            document.body.scrollTop = 0; // Untuk Safari
-            document.documentElement.scrollTop = 0; // Untuk Chrome, Firefox, IE dan Opera
-        }
-    </script>
 </body>
 </html>
