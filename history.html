@@ -1,82 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riwayat Pemesanan - Begindang</title>
     <link rel="icon" type="image/png" href="ft/plane.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
             margin: 0;
-            padding: 20px 0;
+            padding: 0;
             background-image: url('images/latar.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
-
         .container {
             display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 20px;
+            justify-content: space-between;
+            align-items: flex-start;
             width: 90%;
             max-width: 1200px;
             margin: 20px auto;
         }
-
-        .order-history {
-            width: 100%;
+        .order-history,
+        .recommendation {
+            width: 48%;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-height: 500px;
+            overflow-y: auto; /* Membuat bagian ini dapat di-scroll */
+            /* Hide scrollbar */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE 10+ */
         }
-
+        .order-history::-webkit-scrollbar,
+        .recommendation::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
         .card {
             margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
         }
-
+        .card:hover {
+            transform: scale(1.02);
+            transition: transform 0.2s ease-in-out;
+        }
+        .card-title,
+        .card-text {
+            color: #fff;
+        }
+        .btn-primary {
+            background-color: #90d5ff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #78c0e0;
+        }
         .card-img-top {
-            max-width: 400px; /* Gambar mengisi lebar kartu */
-            height: auto; /* Tinggi otomatis untuk menjaga proporsi */
-            object-fit: cover; /* Memastikan gambar mengisi area tanpa merusak rasio */
-            max-height: 200px; /* Tinggi maksimum gambar */
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+            max-height: 200px;
         }
-
         footer {
             width: 100%;
             text-align: center;
-            background-color: #90d5ff;
+            background-color: rgba(0, 0, 50, 0.8);
             padding: 10px;
             margin-top: auto;
-            margin-bottom: -20px;
-        }
-
-        .text-white a {
             color: #fff;
         }
-
+        .text-white a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .social-icons a {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: inherit;
+        }
+        .social-icons a:hover {
+            color: #ddd;
+        }
+        #backToTopBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 20px; /* Place the button at the bottom */
+            right: 30px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: #90d5ff; /* Set a background color */
+            color: white; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 15px; /* Some padding */
+            border-radius: 10px; /* Rounded corners */
+        }
+        #backToTopBtn:hover {
+            background-color: #555; /* Add a dark-grey background on hover */
+        }
         /* Media Query untuk ukuran 768px ke bawah */
         @media (max-width: 768px) {
             .container {
-                align-items: center; /* Memastikan konten berada di tengah */
+                flex-direction: column;
+                align-items: center;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            .order-history,
+            .recommendation {
+                width: 90%;
+                margin-bottom: 20px;
             }
         }
     </style>
 </head>
-
 <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="#">Begindang</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="color: #fff;"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Navigation links -->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="profile.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Riwayat Pemesanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Rekomendasi</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Konten Utama -->
     <div class="container">
+        <!-- Riwayat Pemesanan -->
         <div class="order-history">
             <h5>Riwayat Pemesanan</h5>
+            <!-- Kartu Pemesanan -->
             <div class="card">
                 <img src="images/hero_2.jpg" class="card-img-top" alt="Hotel A">
                 <div class="card-body">
@@ -88,34 +172,91 @@
                 </div>
             </div>
             <div class="card">
-                <img src="images/hero_2.jpg" class="card-img-top" alt="Hotel B">
+                <img src="images/hero_2.jpg" class="card-img-top" alt="Hotel A">
                 <div class="card-body">
-                    <h5 class="card-title">Hotel B</h5>
-                    <p class="card-text">Deskripsi singkat tentang Hotel B.</p>
-                    <p class="card-text"><strong>Tanggal Pemesanan:</strong> 15 Jan 2024</p>
+                    <h5 class="card-title">Hotel A</h5>
+                    <p class="card-text">Deskripsi singkat tentang Hotel A.</p>
+                    <p class="card-text"><strong>Tanggal Pemesanan:</strong> 01 Jan 2024</p>
                     <p class="card-text"><strong>Status:</strong> Selesai</p>
                     <a href="#" class="btn btn-primary">Lihat Detail</a>
                 </div>
             </div>
             <div class="card">
-                <img src="images/hero_2.jpg" class="card-img-top" alt="Hotel C">
+                <img src="images/hero_2.jpg" class="card-img-top" alt="Hotel A">
                 <div class="card-body">
-                    <h5 class="card-title">Hotel C</h5>
-                    <p class="card-text">Deskripsi singkat tentang Hotel C.</p>
-                    <p class="card-text"><strong>Tanggal Pemesanan:</strong> 20 Jan 2024</p>
+                    <h5 class="card-title">Hotel A</h5>
+                    <p class="card-text">Deskripsi singkat tentang Hotel A.</p>
+                    <p class="card-text"><strong>Tanggal Pemesanan:</strong> 01 Jan 2024</p>
                     <p class="card-text"><strong>Status:</strong> Selesai</p>
                     <a href="#" class="btn btn-primary">Lihat Detail</a>
                 </div>
             </div>
+            <!-- Tambahkan lebih banyak kartu sesuai kebutuhan -->
         </div>
-        <a href="profile.html" class="btn btn-primary mt-3">Kembali ke Home</a>
+        <!-- Rekomendasi Hotel Lain -->
+        <div class="recommendation">
+            <h5>Rekomendasi Hotel Lain</h5>
+            <!-- Kartu Rekomendasi -->
+            <div class="card">
+                <img src="images/hotel_1.jpg" class="card-img-top" alt="Hotel D">
+                <div class="card-body">
+                    <h5 class="card-title">Hotel D</h5>
+                    <p class="card-text">Deskripsi singkat tentang Hotel D.</p>
+                    <a href="#" class="btn btn-primary">Lihat Detail</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/hotel_1.jpg" class="card-img-top" alt="Hotel D">
+                <div class="card-body">
+                    <h5 class="card-title">Hotel D</h5>
+                    <p class="card-text">Deskripsi singkat tentang Hotel D.</p>
+                    <a href="#" class="btn btn-primary">Lihat Detail</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/hotel_1.jpg" class="card-img-top" alt="Hotel D">
+                <div class="card-body">
+                    <h5 class="card-title">Hotel D</h5>
+                    <p class="card-text">Deskripsi singkat tentang Hotel D.</p>
+                    <a href="#" class="btn btn-primary">Lihat Detail</a>
+                </div>
+            </div>
+            <!-- Tambahkan lebih banyak kartu sesuai kebutuhan -->
+        </div>
     </div>
-
+    <!-- Tombol Back to Top -->
+    <button onclick="topFunction()" id="backToTopBtn" title="Go to top"><i class="fas fa-chevron-up"></i></button>
+    <!-- Footer -->
     <footer>
         <div class="text-white">
             &copy; 2024 Begindang. All rights reserved.
+            <div class="social-icons mt-2">
+                <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
     </footer>
+    <!-- Bootstrap JS dan dependensi -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Custom JS -->
+    <script>
+        // Mendapatkan tombol:
+        var mybutton = document.getElementById("backToTopBtn");
+        // Ketika pengguna scroll ke bawah 20px dari atas dokumen, tampilkan tombol
+        window.onscroll = function() {scrollFunction();};
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+        // Ketika pengguna klik tombol, scroll ke atas halaman
+        function topFunction() {
+            document.body.scrollTop = 0; // Untuk Safari
+            document.documentElement.scrollTop = 0; // Untuk Chrome, Firefox, IE dan Opera
+        }
+    </script>
 </body>
-
 </html>

@@ -34,6 +34,17 @@
             margin: 20px auto; /* Margin otomatis untuk menempatkan konten di tengah */
         }
 
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Dark overlay effect */
+            z-index: 1;
+        }
+
         .profile-content {
             flex: 6; /* Kolom tengah untuk profil */
             padding: 20px;
@@ -87,6 +98,7 @@
             padding: 10px;
             margin-top: auto; /* Memastikan footer tetap di bawah */
             margin-bottom: -20px;
+            z-index: 1000;
         }
 
         .text-white a {
@@ -121,117 +133,74 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="member-perks">
-            <h5>Member Perks</h5>
-            <p>Rank: Silver</p>
-            <div class="progress">
-                <div class="progress-bar bg-success" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
-            </div>
-            <p>Menyelesaikan: 70 dari 100 poin</p>
-            <h6>Misi untuk Mencapai Member Gold:</h6>
-            <div class="mission-list">
-                <div class="mission">1. Lakukan 5 pemesanan dalam 1 bulan.</div>
-                <div class="mission">2. Dapatkan 100 poin dari aktivitas pengguna.</div>
-                <div class="mission">3. Undang 3 teman untuk mendaftar.</div>
-            </div>
-        </div>
-
-        <div class="profile-content">
-            <h2 class="text-center">Profil Pengguna</h2>
-            <div class="text-center">
-                <img src="images/food-1.jpg" alt="Profile Picture" class="profile-pic"> <!-- Ganti dengan foto profil yang sesuai -->
-            </div>
-            <div class="mb-3 w-100">
-                <p class="data-label">Nama:</p>
-                <p id="displayName">Nama Pengguna</p>
-            </div>
-            <div class="mb-3 w-100">
-                <p class="data-label">Email:</p>
-                <p id="displayEmail">user@example.com</p>
-            </div>
-            <div class="mb-3 w-100">
-                <p class="data-label">Alamat:</p>
-                <p id="displayAddress">Jl. Contoh No. 123, Jakarta</p>
-            </div>
-            <div class="mb-3 w-100">
-                <p class="data-label">Telepon:</p>
-                <p id="displayPhone">0812-3456-7890</p>
-            </div>
-            <div class="text-center">
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profil</button>
-                <a href="index.html" class="btn btn-secondary ms-2">Kembali ke Home</a> <!-- Tombol Kembali ke Home -->
-            </div>
-        </div>
-
-        <div class="order-history">
-            <h5>Riwayat Pemesanan</h5>
-            <a href="history.html" class="btn btn-info ms-2">Lihat Riwayat Pemesanan</a> <!-- Tombol menuju history.html -->
-            <h5 class="mt-5">Referensi Hotel Lainnya</h5>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Hotel A</h5>
-                    <p class="card-text">Deskripsi singkat tentang Hotel A.</p>
-                    <a href="#" class="btn btn-primary">Lihat Detail</a>
+    <div class="overlay">
+        <div class="container">
+            <div class="member-perks">
+                <h5>Member Perks</h5>
+                <p>Rank: Silver</p>
+                <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
+                </div>
+                <p>Menyelesaikan: 70 dari 100 poin</p>
+                <h6>Misi untuk Mencapai Member Gold:</h6>
+                <div class="mission-list">
+                    <div class="mission">1. Lakukan 5 pemesanan dalam 1 bulan.</div>
+                    <div class="mission">2. Dapatkan 100 poin dari aktivitas pengguna.</div>
+                    <div class="mission">3. Undang 3 teman untuk mendaftar.</div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Hotel B</h5>
-                    <p class="card-text">Deskripsi singkat tentang Hotel B.</p>
-                    <a href="#" class="btn btn-primary">Lihat Detail</a>
+    
+            <div class="profile-content">
+                <h2 class="text-center">Profil Pengguna</h2>
+                <div class="text-center">
+                    <img src="images/food-1.jpg" alt="Profile Picture" class="profile-pic"> <!-- Ganti dengan foto profil yang sesuai -->
+                </div>
+                <div class="mb-3 w-100">
+                    <p class="data-label">Nama:</p>
+                    <p id="displayName">Nama Pengguna</p>
+                </div>
+                <div class="mb-3 w-100">
+                    <p class="data-label">Email:</p>
+                    <p id="displayEmail">user@example.com</p>
+                </div>
+                <div class="mb-3 w-100">
+                    <p class="data-label">Alamat:</p>
+                    <p id="displayAddress">Jl. Contoh No. 123, Jakarta</p>
+                </div>
+                <div class="mb-3 w-100">
+                    <p class="data-label">Telepon:</p>
+                    <p id="displayPhone">0812-3456-7890</p>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profil</button>
+                    <a href="index.html" class="btn btn-secondary ms-2">Kembali ke Home</a> <!-- Tombol Kembali ke Home -->
                 </div>
             </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Hotel C</h5>
-                    <p class="card-text">Deskripsi singkat tentang Hotel C.</p>
-                    <a href="#" class="btn btn-primary">Lihat Detail</a>
+    
+            <div class="order-history">
+                <h5>Riwayat Pemesanan</h5>
+                <a href="history.html" class="btn btn-info ms-2">Lihat Riwayat Pemesanan</a> <!-- Tombol menuju history.html -->
+                <h5 class="mt-5">Referensi Hotel Lainnya</h5>
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">Hotel Santika</h6>
+                        <p class="card-text">Lokasi: Jakarta, ID</p>
+                        <p class="card-text">Harga: Rp 800.000/malam</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">The Dharmawangsa</h6>
+                        <p class="card-text">Lokasi: Jakarta, ID</p>
+                        <p class="card-text">Harga: Rp 1.500.000/malam</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Modal Edit Profil -->
-    <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editProfileModalLabel">Edit Profil</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Form edit profil -->
-                    <form>
-                        <div class="mb-3">
-                            <label for="editName" class="form-label">Nama</label>
-                            <input type="text" class="form-control" id="editName" value="Nama Pengguna">
-                        </div>
-                        <div class="mb-3">
-                            <label for="editEmail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="editEmail" value="user@example.com">
-                        </div>
-                        <div class="mb-3">
-                            <label for="editAddress" class="form-label">Alamat</label>
-                            <input type="text" class="form-control" id="editAddress" value="Jl. Contoh No. 123, Jakarta">
-                        </div>
-                        <div class="mb-3">
-                            <label for="editPhone" class="form-label">Telepon</label>
-                            <input type="text" class="form-control" id="editPhone" value="0812-3456-7890">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <footer>
-        <div class="text-white">
-            <p>© 2024 Begindang. All Rights Reserved.</p>
+        <div class="text-center text-white">
+            <p>Begindang - Your Travel Partner | &copy; 2024 All Rights Reserved | <a href="contact.html">Hubungi Kami</a></p>
         </div>
     </footer>
 </body>
