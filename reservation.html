@@ -128,7 +128,7 @@
 <header class="site-header js-site-header">
     <div class="container-fluid">
         <div class="row align-items-center">
-            <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="index.html">Begindang Hotel</a></div>
+            <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="index2.html">Begindang Hotel</a></div>
             <div class="col-6 col-lg-8">
                 <nav class="navbar navbar-expand-lg">
                     <div class="container">
@@ -140,7 +140,7 @@
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav ms-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                                    <a class="nav-link" aria-current="page" href="index2.html">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="rooms.html">Rooms</a>
@@ -175,7 +175,7 @@
 <!-- Sidebar -->
 <div class="sidebar" id="sidebar">
     <h5 class="mt-3">Sidebar Menu</h5>
-    <a href="index.html"><i class="fa fa-home"></i> Home</a>
+    <a href="index2.html"><i class="fa fa-home"></i> Home</a>
     <a href="rooms.html"><i class="fa fa-bed"></i> Rooms</a>
     <a href="about.html"><i class="fa fa-info-circle"></i> About</a>
     <a href="events.html"><i class="fa fa-calendar"></i> Events</a>
@@ -191,7 +191,7 @@
             <div class="col-md-10 text-center" data-aos="fade">
                 <h1 class="heading mb-3">Reservation Form</h1>
                 <ul class="custom-breadcrumbs mb-4">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index2.html">Home</a></li>
                     <li>&bullet;</li>
                     <li>Reservation</li>
                 </ul>
@@ -268,7 +268,17 @@
                             </div>
                         </div>
                     </div>
-
+                    <div class="row mb-4">
+                        <div class="col-md-12 form-group">
+                            <label class="text-black font-weight-bold" for="rooms">Rooms</label>
+                            <select name="room" id="select-room" class="form-control">
+                                <option value="" selected disabled hidden>Pilih Kamar</option>
+                                <option value="Single Room">Single Room</option>
+                                <option value="Family Room">Family Room</option>
+                                <option value="Presidental Room">Presidental Room</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="row mb-4">
                         <div class="col-md-12 form-group">
                             <label class="text-black font-weight-bold" for="message">Notes</label>
@@ -277,7 +287,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 form-group">
-                            <input type="submit" value="Reserve Now" class="btn btn-primary text-white py-3 px-5 font-weight-bold">
+                            <button id="proceed-button" class="btn btn-primary text-white py-3 px-5 font-weight-bold">Proceed to Payment</button>
                         </div>
                     </div>
                 </form>
@@ -479,6 +489,34 @@
             });
         }
     });
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('proceed-button').addEventListener('click', function() {
+            var roomType = document.getElementById('select-room').value;
+
+            // Menetapkan harga berdasarkan jenis kamar
+            var price = 0;
+
+            switch (roomType) {
+                case 'Single Room':
+                    price = 899999; // Harga untuk Single Room
+                    break;
+                case 'Family Room':
+                    price = 1299000; // Harga untuk Family Room
+                    break;
+                case 'Presidental Room':
+                    price = 1899000; // Harga untuk Presidential Room
+                    break;
+            }
+
+            // Simpan data ke localStorage
+            localStorage.setItem('roomType', roomType);
+            localStorage.setItem('roomPrice', price);
+
+            // Arahkan ke halaman pembayaran
+            window.location.href = 'payment.html'; // Ganti dengan nama halaman pembayaran
+        });
+    });
 </script>
+
 </body>
 </html>

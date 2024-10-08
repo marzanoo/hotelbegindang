@@ -122,25 +122,25 @@
                                       <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                                   </li>
                                   <li class="nav-item">
-                                    <a class="nav-link" href="#" onclick="checkLogin()">Rooms</a>
+                                      <a class="nav-link" href="rooms.html">Rooms</a>
                                   </li>
                                   <li class="nav-item">
-                                    <a class="nav-link" href="#" onclick="checkLogin()">About</a>
+                                      <a class="nav-link" href="about.html">About</a>
                                   </li>
                                   <li class="nav-item">
-                                    <a class="nav-link" href="#" onclick="checkLogin()">Events</a>
+                                      <a class="nav-link" href="events.html">Events</a>
                                   </li>
                                   <li class="nav-item">
-                                    <a class="nav-link" href="#" onclick="checkLogin()">Contact</a>
+                                      <a class="nav-link" href="contact.html">Contact</a>
                                   </li>
                                   <li class="nav-item">
-                                    <a class="nav-link" href="#" onclick="checkLogin()">Reservation</a>
+                                      <a class="nav-link" href="reservation.html">Reservation</a>
                                   </li>
                                   <li class="nav-item">
-                                    <a class="nav-link" href="#" onclick="checkLogin()">Profile</a>
+                                      <a class="nav-link" href="profile.html">Profile</a>
                                   </li>
                                   <li class="nav-item">
-                                      <a class="nav-link" href="login.html">Login</a>
+                                      <a class="nav-link" href="login.html">Logout</a>
                                   </li>
                               </ul>
                           </div>
@@ -155,13 +155,13 @@
      <div class="sidebar" id="sidebar">
       <h5 class="mt-3">Sidebar Menu</h5>
       <a class="side active" href="index.html"><i class="fa fa-home"></i> Home</a>
-      <a href="#" onclick="checkLogin()"><i class="fa fa-bed"></i> Rooms</a>
-      <a href="#" onclick="checkLogin()"><i class="fa fa-info-circle"></i> About</a>
-      <a href="#" onclick="checkLogin()"><i class="fa fa-calendar"></i> Events</a>
-      <a href="#" onclick="checkLogin()"><i class="fa fa-envelope"></i> Contact</a>
-      <a href="#" onclick="checkLogin()"><i class="fa fa-bed"></i> Reservation</a>
-      <a href="#" onclick="checkLogin()"><i class="fa fa-user"></i> Profile</a>
-      <a href="login.html"><i class="fa fa-sign-in"></i> Login</a>
+      <a href="rooms.html"><i class="fa fa-bed"></i> Rooms</a>
+      <a href="about.html"><i class="fa fa-info-circle"></i> About</a>
+      <a href="events.html"><i class="fa fa-calendar"></i> Events</a>
+      <a href="contact.html"><i class="fa fa-envelope"></i> Contact</a>
+      <a href="reservation.html"><i class="fa fa-bed"></i> Reservation</a>
+      <a href="profile.html"><i class="fa fa-user"></i> Profile</a>
+      <a href="login.html"><i class="fa fa-sign-out"></i> Logout</a>
     </div>
 
     <section class="site-hero overlay" style="background-image: url(images/latar.jpg)" data-stellar-background-ratio="0.5">
@@ -713,18 +713,7 @@
           const sidebar = document.getElementById('sidebar');
           sidebar.classList.toggle('active');
       }
-      function checkLogin() {
-          // Ganti dengan logika pemeriksaan login sesuai kebutuhan Anda
-          const isLoggedIn = false; // Misalnya, ganti dengan kondisi sebenarnya
-  
-          if (!isLoggedIn) {
-              alert("Anda harus login terlebih dahulu!");
-          } else {
-              window.location.href = "rooms.html"; // Ganti dengan URL yang benar untuk halaman rooms
-          }
-      }
     </script>
-    
     <script src="js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
