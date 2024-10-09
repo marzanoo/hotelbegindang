@@ -63,17 +63,29 @@
             text-align: left; /* Mengatur agar label data tidak berada di tengah */
             width: 100%; /* Memastikan label data mengambil lebar penuh */
         }
+        .order-history {
+            max-height: 500px;
+            overflow-y: scroll;
+        }
+
+        .order-history::-webkit-scrollbar {
+            width: 0px;
+            background: transparent; /* Buat scrollbar menjadi transparan */
+        }
 
         .member-perks,
         .order-history {
-            flex: 3; /* Kolom kanan dan kiri untuk info dan riwayat */
+            flex: 3; /* Kolom kanan untuk info dan riwayat */
             padding: 20px;
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             min-width: 250px; /* Minimum width untuk member perks dan order history */
+            max-height: 650px; /* Batasi tinggi maksimal */
+            overflow-y: auto; /* Aktifkan scroll jika konten melebihi batas */
         }
+
 
         .hotel-recommendations {
             flex: 3; /* Kolom kanan untuk referensi hotel */
@@ -162,15 +174,15 @@
                 </div>
                 <div class="mb-3 w-100">
                     <p class="data-label">Nama:</p>
-                    <p id="displayName">Nama Pengguna</p>
+                    <p id="displayName">Katak Al Bhizer</p>
                 </div>
                 <div class="mb-3 w-100">
                     <p class="data-label">Email:</p>
-                    <p id="displayEmail">user@example.com</p>
+                    <p id="displayEmail">katak.acumalaka@gmail.com</p>
                 </div>
                 <div class="mb-3 w-100">
                     <p class="data-label">Alamat:</p>
-                    <p id="displayAddress">Jl. Contoh No. 123, Jakarta</p>
+                    <p id="displayAddress">Jl. Genangan Banjir 20, No 69</p>
                 </div>
                 <div class="mb-3 w-100">
                     <p class="data-label">Telepon:</p>
@@ -184,27 +196,42 @@
     
             <div class="order-history">
                 <h5>Riwayat Pemesanan</h5>
-                <a href="history.html" class="btn btn-info ms-2">Lihat Riwayat Pemesanan</a> <!-- Tombol menuju history.html -->
+                <a href="history.html" class="btn btn-primary ms-2">Lihat Riwayat Pemesanan</a> <!-- Tombol menuju history.html -->
                 <h5 class="mt-5">Referensi Hotel Lainnya</h5>
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Hotel A</h5>
-                        <p class="card-text">Deskripsi singkat tentang Hotel A.</p>
-                        <a href="#" class="btn btn-primary">Lihat Detail</a>
+                        <figure class="img-wrap">
+                            <img src="images/img_1.jpg" alt="Free website template" class="img-fluid mb-3">
+                          </figure>
+                          <div class="room-info">
+                            <h4>Single Room</h4>
+                            <span class="text-uppercase letter-spacing-1">Rp 899,000 / per night</span>
+                          </div>
+                        <a href="rooms.html" class="btn btn-primary">Lihat Detail</a>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Hotel B</h5>
-                        <p class="card-text">Deskripsi singkat tentang Hotel B.</p>
-                        <a href="#" class="btn btn-primary">Lihat Detail</a>
+                        <figure class="img-wrap">
+                            <img src="images/img_2.jpg" alt="Free website template" class="img-fluid mb-3">
+                          </figure>
+                          <div class="room-info">
+                            <h4>Family Room</h4>
+                            <span class="text-uppercase letter-spacing-1">Rp 1,299,000 / per night</span>
+                          </div>
+                        <a href="rooms.html" class="btn btn-primary">Lihat Detail</a>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Hotel C</h5>
-                        <p class="card-text">Deskripsi singkat tentang Hotel C.</p>
-                        <a href="#" class="btn btn-primary">Lihat Detail</a>
+                        <figure class="img-wrap">
+                            <img src="images/img_3.jpg" alt="Free website template" class="img-fluid mb-3">
+                          </figure>
+                          <div class="room-info">
+                            <h4>Presidental Room</h4>
+                            <span class="text-uppercase letter-spacing-1">Rp 1,899,000 / per night</span>
+                          </div>
+                        <a href="rooms.html" class="btn btn-primary">Lihat Detail</a>
                     </div>
                 </div>
             </div>
@@ -223,15 +250,15 @@
                         <form>
                             <div class="mb-3">
                                 <label for="editName" class="form-label">Nama</label>
-                                <input type="text" class="form-control" id="editName" value="Nama Pengguna">
+                                <input type="text" class="form-control" id="editName" value="Katak Al Bhizer">
                             </div>
                             <div class="mb-3">
                                 <label for="editEmail" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="editEmail" value="user@example.com">
+                                <input type="email" class="form-control" id="editEmail" value="katak.acumalaka@gmail.com">
                             </div>
                             <div class="mb-3">
                                 <label for="editAddress" class="form-label">Alamat</label>
-                                <input type="text" class="form-control" id="editAddress" value="Jl. Contoh No. 123, Jakarta">
+                                <input type="text" class="form-control" id="editAddress" value="Jl. Genangan Banjir 20, No. 69">
                             </div>
                             <div class="mb-3">
                                 <label for="editPhone" class="form-label">Telepon</label>
