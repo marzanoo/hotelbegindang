@@ -84,17 +84,36 @@
               display: none; /* Sembunyikan sidebar pada layar besar */
           }
       }
-      .nav-link.active {
-          color: navy; /* Warna teks untuk link aktif */
-          font-weight: bold; /* Menebalkan teks untuk link aktif */
-          /* Anda juga bisa menambahkan lebih banyak gaya seperti background color, border, dll. */
-      }
-      .nav-link:hover{
-        color: whitesmoke;
-        font-weight: bold;
-        background: linear-gradient(35deg, #f7971e, #ffd200);
-        border-radius: 50px;
-      }
+      .navbar a {
+            color: orange; /* Warna default link */
+            transition: color 0.3s ease;
+        }
+
+        /* Warna untuk link halaman aktif */
+        .nav-link.active {
+            color: white; /* Warna untuk halaman aktif */
+            font-weight: bold; /* Menebalkan teks untuk link aktif */
+        }
+        .nav-link:hover{
+            color: whitesmoke;
+            font-weight: bold;
+            background: linear-gradient(35deg, #f7971e, #ffd200);
+            border-radius: 50px;
+            
+        }
+        .navbar.scrolled .nav-link:hover{
+          color: white;
+        }
+
+        /* Warna untuk navbar saat di-scroll */
+        .navbar.scrolled a {
+            color: orange; /* Warna link saat di-scroll */
+        }
+
+        /* Warna untuk halaman aktif saat di-scroll */
+        .navbar.scrolled .nav-link.active {
+            color: navy; /* Warna halaman aktif yang berbeda saat di-scroll */
+        }
       .side.active {
           color: orange; /* Warna teks untuk link aktif */
           font-weight: bold; /* Menebalkan teks untuk link aktif */
@@ -409,5 +428,38 @@
       }
     </script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+      function toggleSidebar() {
+          const sidebar = document.getElementById('sidebar');
+          sidebar.classList.toggle('active');
+      }
+  
+      // Menambahkan event listener untuk scroll
+      window.addEventListener("scroll", function() {
+          var navbar = document.querySelector(".navbar");
+          var navLinks = document.querySelectorAll('.nav-link');
+  
+          // Jika scroll lebih dari 50px, tambahkan kelas "scrolled" pada navbar
+          if (window.scrollY > 30) {
+              navbar.classList.add("scrolled");
+  
+              // Tentukan warna untuk halaman aktif saat scroll
+              navLinks.forEach(function(link) {
+                  if (link.href === window.location.href) {
+                      link.classList.add('active');
+                  }
+              });
+          } else {
+              navbar.classList.remove("scrolled");
+  
+              // Kembalikan ke warna aktif default saat tidak scroll
+              navLinks.forEach(function(link) {
+                  if (link.href === window.location.href) {
+                      link.classList.add('active');
+                  }
+              });
+          }
+      });
+  </script>
   </body>
 </html>

@@ -84,17 +84,36 @@
               display: none; /* Sembunyikan sidebar pada layar besar */
           }
       }
-      .nav-link.active {
-          color: navy; /* Warna teks untuk link aktif */
-          font-weight: bold; /* Menebalkan teks untuk link aktif */
-          /* Anda juga bisa menambahkan lebih banyak gaya seperti background color, border, dll. */
-      }
-      .nav-link:hover{
-        color: whitesmoke;
-        font-weight: bold;
-        background: linear-gradient(35deg, #f7971e, #ffd200);
-        border-radius: 50px;
-      }
+      .navbar a {
+            color: orange; /* Warna default link */
+            transition: color 0.3s ease;
+        }
+
+        /* Warna untuk link halaman aktif */
+        .nav-link.active {
+            color: white; /* Warna untuk halaman aktif */
+            font-weight: bold; /* Menebalkan teks untuk link aktif */
+        }
+        .nav-link:hover{
+            color: whitesmoke;
+            font-weight: bold;
+            background: linear-gradient(35deg, #f7971e, #ffd200);
+            border-radius: 50px;
+            
+        }
+        .navbar.scrolled .nav-link:hover{
+          color: white;
+        }
+
+        /* Warna untuk navbar saat di-scroll */
+        .navbar.scrolled a {
+            color: orange; /* Warna link saat di-scroll */
+        }
+
+        /* Warna untuk halaman aktif saat di-scroll */
+        .navbar.scrolled .nav-link.active {
+            color: navy; /* Warna halaman aktif yang berbeda saat di-scroll */
+        }
       .side.active {
           color: orange; /* Warna teks untuk link aktif */
           font-weight: bold; /* Menebalkan teks untuk link aktif */
@@ -168,7 +187,7 @@
       <div class="container">
         <div class="row site-hero-inner justify-content-center align-items-center">
           <div class="col-md-10 text-center" data-aos="fade">
-            <h1 class="heading mb-3">About Us</h1>
+            <h1 class="heading mb-3">Tentang Kite</h1>
             <ul class="custom-breadcrumbs mb-4">
               <li><a href="index.html">Home</a></li>
               <li>&bullet;</li>
@@ -217,22 +236,22 @@
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
           <div class="block-2">
             <div class="flipper">
-              <div class="front" style="background-image: url(images/person_3.jpg);">
+              <div class="front" style="background-image: url(images/ojek.jpeg);">
                 <div class="box">
-                  <h2>Will Peters</h2>
-                  <p>President</p>
+                  <h2>Napi Kabbur</h2>
+                  <p>King</p>
                 </div>
               </div>
               <div class="back">
                 <!-- back content -->
                 <blockquote>
-                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
+                  <p>&ldquo;Pesan saya bagi temen temen semuanya agar tetap bersemangat untuk kuliah nya, seperti saya yang sangat bersemangat ini setiap waktunya.&rdquo;</p>
                 </blockquote>
                 <div class="author d-flex">
                   <div class="image mr-3 align-self-center">
-                    <img src="images/person_3.jpg" alt="">
+                    <img src="images/ojek.jpeg" alt="">
                   </div>
-                  <div class="name align-self-center">Will Peters <span class="position">President</span></div>
+                  <div class="name align-self-center">Napi kabur <span class="position">King</span></div>
                 </div>
               </div>
             </div>
@@ -242,7 +261,7 @@
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
           <div class="block-2"> <!-- .hover -->
             <div class="flipper">
-              <div class="front" style="background-image: url(images/person_1.jpg);">
+              <div class="front" style="background-image: url(images/bimolope.jpeg);">
                 <div class="box">
                   <h2>Jane Williams</h2>
                   <p>Business Manager</p>
@@ -255,7 +274,7 @@
                 </blockquote>
                 <div class="author d-flex">
                   <div class="image mr-3 align-self-center">
-                    <img src="images/person_1.jpg" alt="">
+                    <img src="images/bimolope.jpeg" alt="">
                   </div>
                   <div class="name align-self-center">Jane Williams <span class="position">Business Manager</span></div>
                 </div>
@@ -267,7 +286,7 @@
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
           <div class="block-2">
             <div class="flipper">
-              <div class="front" style="background-image: url(images/person_2.jpg);">
+              <div class="front" style="background-image: url(images/bayu.jpeg);">
                 <div class="box">
                   <h2>Jeffrey Neddery</h2>
                   <p>Marketing Director</p>
@@ -280,7 +299,7 @@
                 </blockquote>
                 <div class="author d-flex">
                   <div class="image mr-3 align-self-center">
-                    <img src="images/person_2.jpg" alt="">
+                    <img src="images/bayu.jpeg" alt="">
                   </div>
                   <div class="name align-self-center">Jeffrey Neddery <span class="position">Marketing Director</span></div>
                 </div>
@@ -462,5 +481,38 @@
       }
     </script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+      function toggleSidebar() {
+          const sidebar = document.getElementById('sidebar');
+          sidebar.classList.toggle('active');
+      }
+  
+      // Menambahkan event listener untuk scroll
+      window.addEventListener("scroll", function() {
+          var navbar = document.querySelector(".navbar");
+          var navLinks = document.querySelectorAll('.nav-link');
+  
+          // Jika scroll lebih dari 50px, tambahkan kelas "scrolled" pada navbar
+          if (window.scrollY > 30) {
+              navbar.classList.add("scrolled");
+  
+              // Tentukan warna untuk halaman aktif saat scroll
+              navLinks.forEach(function(link) {
+                  if (link.href === window.location.href) {
+                      link.classList.add('active');
+                  }
+              });
+          } else {
+              navbar.classList.remove("scrolled");
+  
+              // Kembalikan ke warna aktif default saat tidak scroll
+              navLinks.forEach(function(link) {
+                  if (link.href === window.location.href) {
+                      link.classList.add('active');
+                  }
+              });
+          }
+      });
+  </script>
   </body>
 </html>
