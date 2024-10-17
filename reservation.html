@@ -49,7 +49,7 @@
             transform: translateY(-100%); /* Sembunyikan sidebar di atas layar */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan untuk sidebar */
         }
-
+        
         .sidebar.active {
             transform: translateY(0); /* Tampilkan sidebar */
         }
@@ -233,12 +233,12 @@
 
                     <div class="row">
                         <div class="col-md-6 form-group">
-                            <label class="text-black font-weight-bold" for="checkin_date">Date Check In</label>
-                            <input type="text" id="checkin_date" class="form-control">
+                            <label class="text-black font-weight-bold">Date Check In</label>
+                            <input id="checkin_date" class="form-control">
                         </div>
                         <div class="col-md-6 form-group">
-                            <label class="text-black font-weight-bold" for="checkout_date">Date Check Out</label>
-                            <input type="text" id="checkout_date" class="form-control">
+                            <label class="text-black font-weight-bold">Date Check Out</label>
+                            <input id="checkout_date" class="form-control">
                         </div>
                     </div>
 
@@ -499,22 +499,39 @@
 
             switch (roomType) {
                 case 'Jomblo Room':
-                    price = 899999; // Harga untuk Single Room
+                    price = 899999; // Harga untuk Jomblo Room
                     break;
                 case 'Happy Family Room':
-                    price = 1299000; // Harga untuk Family Room
+                    price = 1299000; // Harga untuk Happy Family Room
                     break;
                 case 'King Room':
-                    price = 1899000; // Harga untuk Presidential Room
+                    price = 1899000; // Harga untuk King Room
                     break;
             }
 
-            // Simpan data ke localStorage
-            localStorage.setItem('roomType', roomType);
-            localStorage.setItem('roomPrice', price);
+            // Ambil tanggal check-in dan check-out
+            const checkinDate = document.getElementById('checkin_date').value;
+            const checkoutDate = document.getElementById('checkout_date').value;
 
-            // Arahkan ke halaman pembayaran
-            window.location.href = 'payment.html'; // Ganti dengan nama halaman pembayaran
+            if (checkinDate && checkoutDate && checkoutDate > checkinDate) {
+                // Hitung jumlah hari menginap
+                const timeDifference = checkoutDate.getTime() - checkinDate.getTime();
+                const daysDifference = timeDifference / (1000 * 3600 * 24); // Konversi selisih waktu menjadi hari
+                
+                // Total harga berdasarkan jumlah hari
+                const totalPrice = daysDifference * price;
+
+                // Simpan data ke localStorage
+                localStorage.setItem('roomType', roomType);
+                localStorage.setItem('roomPrice', price);
+                localStorage.setItem('days', daysDifference);
+                localStorage.setItem('totalPrice', totalPrice);
+
+                // Arahkan ke halaman pembayaran
+                window.location.href = 'payment.html'; // Ganti dengan nama halaman pembayaran
+            } else {
+                alert('Please select valid check-in and check-out dates.');
+            }
         });
     });
 </script>

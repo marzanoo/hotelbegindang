@@ -75,9 +75,14 @@
                             <div id="room-details">
                                 <h4>Tipe Kamar:</h4>
                                 <p id="room-type"></p>
-                                <h4>Harga:</h4>
+                                <h4>Harga per Malam:</h4>
                                 <p id="room-price"></p>
+                                <h4>Jumlah Malam:</h4>
+                                <p id="total-days"></p>
+                                <h4>Total Harga:</h4>
+                                <p id="total-price"></p>
                             </div>
+
                             <p class="fw-bold mb-4">Bayar Menggunakan Kartu:</p>
 
                             <div class="mb-4">
@@ -193,27 +198,25 @@
             }
 
             // Tampilkan alert setelah berhasil
-            alert("Pembayaran berhasil! Silahkan buka email Anda untuk melihat receipt-nya.");
-
-            // Anda bisa menambahkan aksi lain di sini, seperti redirect ke halaman lain
-            window.location.href = "index2.html";
+            alert("Pembayaran berhasil! Silahkan buka email Anda untuk detailnya.");
         }
 
-        // Ambil data dari localStorage
+        // Ambil data dari localStorage dan tampilkan di halaman pembayaran
         var roomType = localStorage.getItem('roomType');
         var roomPrice = localStorage.getItem('roomPrice');
+        var days = localStorage.getItem('days');
+        var totalPrice = localStorage.getItem('totalPrice');
 
         // Tampilkan data di halaman
         document.getElementById('room-type').textContent = roomType || 'Belum ada kamar yang dipilih.';
         document.getElementById('room-price').textContent = roomPrice ? formatCurrency(roomPrice) + ' / per malam' : 'Harga tidak tersedia.';
+        document.getElementById('total-days').textContent = days ? days + ' malam' : 'Jumlah malam tidak tersedia.';
+        document.getElementById('total-price').textContent = totalPrice ? formatCurrency(totalPrice) : 'Total harga tidak tersedia.';
 
         // Fungsi untuk memformat harga
         function formatCurrency(amount) {
-            return 'Rp ' + amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            return 'Rp ' + parseInt(amount).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
     </script>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-HoA7fVkyKBvE6DsFsJ+8SpGVUNrn4Dbis0E5vV2Lk/hfpEq92X/6V3rPZmsbFYP7" crossorigin="anonymous"></script>
 </body>
 </html>
