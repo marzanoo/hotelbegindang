@@ -212,7 +212,7 @@
         <div class="row">
             <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
 
-                <form action="#" method="post" class="bg-white p-md-5 p-4 mb-5 border">
+                <form action="payment.html" method="post" class="bg-white p-md-5 p-4 mb-5 border">
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label class="text-black font-weight-bold" for="name">Name</label>
@@ -288,7 +288,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 form-group">
-                            <button id="proceed-button" class="btn btn-primary text-white py-3 px-5 font-weight-bold">Proceed to Payment</button>
+                            <button id="proceed-button" type="button" class="btn btn-primary text-white py-3 px-5 font-weight-bold">Proceed to Payment</button>
                         </div>
                     </div>
                 </form>
@@ -491,7 +491,9 @@
         }
     });
     document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('proceed-button').addEventListener('click', function() {
+        document.getElementById('proceed-button').addEventListener('click', function(event) {
+            event.preventDefault(); // Mencegah pengiriman form
+
             var roomType = document.getElementById('select-room').value;
 
             // Menetapkan harga berdasarkan jenis kamar
@@ -510,8 +512,8 @@
             }
 
             // Ambil tanggal check-in dan check-out
-            const checkinDate = document.getElementById('checkin_date').value;
-            const checkoutDate = document.getElementById('checkout_date').value;
+            const checkinDate = new Date(document.getElementById('checkin_date').value);
+            const checkoutDate = new Date(document.getElementById('checkout_date').value);
 
             if (checkinDate && checkoutDate && checkoutDate > checkinDate) {
                 // Hitung jumlah hari menginap
@@ -534,6 +536,7 @@
             }
         });
     });
+
 </script>
 
 </body>
